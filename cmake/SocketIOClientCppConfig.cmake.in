@@ -1,0 +1,16 @@
+set(SocketIOClientCpp_FOUND 1)
+
+set(SocketIOClientCpp_VERSION_MAJOR   "@MAJOR@")
+set(SocketIOClientCpp_VERSION_MINOR   "@MINOR@")
+set(SocketIOClientCpp_VERSION_PATCH   "@PATCH@")
+set(SocketIOClientCpp_VERSION         "${SocketIOClientCpp_VERSION_MAJOR}.${SocketIOClientCpp_VERSION_MINOR}.${SocketIOClientCpp_VERSION_PATCH}")
+
+set(SocketIOClientCpp_INSTALL_PREFIX  "@CMAKE_INSTALL_PREFIX@")
+set(SocketIOClientCpp_INCLUDE_DIRS    "${SocketIOClientCpp_INSTALL_PREFIX}/include")
+set(SocketIOClientCpp_LIBRARY_DIR     "${SocketIOClientCpp_INSTALL_PREFIX}/lib")
+set(SocketIOClientCpp_RUNTIME_DIR     "${SocketIOClientCpp_INSTALL_PREFIX}/bin")
+set(SocketIOClientCpp_CMAKE_DIR       "${SocketIOClientCpp_LIBRARY_DIR}/cmake")
+
+if(NOT TARGET sioclient)
+  include("${SocketIOClientCpp_CMAKE_DIR}/SocketIOClientCppTargets.cmake")
+endif()
