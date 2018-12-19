@@ -34,6 +34,8 @@ target_include_directories(sioclient PRIVATE ${Boost_INCLUDE_DIRS}
     ${CMAKE_CURRENT_LIST_DIR}/lib/rapidjson/include
 )
 
+set_property(TARGET sioclient PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 set_property(TARGET sioclient PROPERTY CXX_STANDARD 11)
 set_property(TARGET sioclient PROPERTY CXX_STANDARD_REQUIRED ON)
 target_link_libraries(sioclient PRIVATE ${Boost_LIBRARIES})
@@ -49,6 +51,7 @@ list(APPEND TARGET_LIBRARIES sioclient)
 find_package(OpenSSL)
 if(OPENSSL_FOUND)
 add_library(sioclient_tls ${ALL_SRC})
+set_property(TARGET sioclient_tls PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(sioclient_tls PRIVATE ${Boost_INCLUDE_DIRS}
     ${CMAKE_CURRENT_LIST_DIR}/src
     ${CMAKE_CURRENT_LIST_DIR}/lib/websocketpp
