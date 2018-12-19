@@ -10,7 +10,7 @@
 Run with following script will build the necessary subset:
 
 ```bash
-bjam install --prefix="<your boost install folder>" --with-system --with-date_time --with-random link=static runtime-link=shared threading=multi
+bjam cxxflags=-fPIC install --prefix="<your boost install folder>" --with-system --with-date_time --with-random link=static runtime-link=shared threading=multi
 ```
 Optionally You can merge all output .lib files into a fat one,especially if you're not using cmake.
 
